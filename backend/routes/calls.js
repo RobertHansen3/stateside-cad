@@ -3,9 +3,9 @@ module.exports = (pool) => {
   const router = express.Router();
 
   router.get("/", async (req, res) => {
-    const q =
-      "SELECT * FROM stateside_calls WHERE state != $1 ORDER BY created_at DESC";
-    const { rows } = await pool.query(q, ["closed"]);
+    const { rows } = await pool.query(
+      "SELECT * FROM stateside_calls ORDER BY created_at DESC"
+    );
     res.json(rows);
   });
 
