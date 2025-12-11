@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:3000", // backend dev server
+      "/api": "https://stateside-cad.onrender.com/", // backend dev server
     },
   },
 });
