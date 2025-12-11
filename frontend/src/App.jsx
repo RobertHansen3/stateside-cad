@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import CallsList from "./components/CallsList";
 import UnitsList from "./components/UnitsList";
-const API_URL =
-  import.meta.env.VITE_API_URL || "https://stateside-cad.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function App() {
   const [calls, setCalls] = useState([]);

@@ -1,4 +1,16 @@
-export default function CallsList({ calls }) {
+import { useEffect, useState } from "react";
+
+export default function CallsList() {
+  const [calls, setCalls] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    fetch(`${API_URL}/api/calls`)
+      .then((res) => res.json())
+      .then(setCalls)
+      .catch((err) => console.error("Error fetching calls:", err));
+  }, [API_URL]);
+
   return (
     <div>
       <h2 className="font-semibold">Active Calls</h2>
@@ -9,14 +21,8 @@ export default function CallsList({ calls }) {
               {c.caller} ({c.phone})
             </div>
             <div className="text-xs text-slate-400">{c.notes}</div>
-            <div className="text-xs text-slate-500">
-              Priority: {c.priority} • State: {c.state}
-            </div>
           </div>
         ))}
-        {calls.length === 0 && (
-          <div className="text-slate-400 text-sm">No active calls</div>
-        )}
       </div>
     </div>
   );
