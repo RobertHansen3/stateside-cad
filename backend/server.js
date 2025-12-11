@@ -7,7 +7,11 @@ const callsRouter = require("./routes/calls");
 const unitsRouter = require("./routes/units");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://stateside-cad-1.onrender.com",
+  })
+);
 app.use(express.json());
 
 const pool = new Pool({
