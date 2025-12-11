@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import CallsList from "./components/CallsList";
 import UnitsList from "./components/UnitsList";
+const API_URL =
+  import.meta.env.VITE_API_URL || "https://stateside-cad.onrender.com";
 
 export default function App() {
   const [calls, setCalls] = useState([]);
   const [units, setUnits] = useState([]);
 
   useEffect(() => {
-    fetch("/api/calls")
+    fetch(`${API_URL}/api/calls`)
       .then((r) => r.json())
       .then(setCalls);
-    fetch("/api/units")
+    fetch(`${API_URL}/api/units`)
       .then((r) => r.json())
       .then(setUnits);
   }, []);
