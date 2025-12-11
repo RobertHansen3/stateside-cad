@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 
-function App() {
+export default function App() {
   const [calls, setCalls] = useState([]);
   const [units, setUnits] = useState([]);
 
@@ -32,7 +32,7 @@ function App() {
           </div>
         </div>
         <div>
-          <h2>Units</h2>
+          <h2 className="font-semibold">Units</h2>
           <div className="space-y-2 mt-2">
             {units.map((u) => (
               <div key={u.id} className="p-3 bg-slate-800 rounded">
@@ -48,5 +48,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
